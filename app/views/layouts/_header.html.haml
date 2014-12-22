@@ -2,7 +2,17 @@
   %nav.navbar.navbar-default.navbar-fixed-top{role: 'navigation'}
     .col-lg-2
       %ul.nav.navbar-nav.navbar-left
+        %a.navbar-brand{:href => "/"}
+          Adslyw
+    .col-lg-8
+    .col-lg-2
+      %ul.nav.navbar-nav.navbar-left
         %li
-          %a{:href => "/login"}
-            = fa_icon "fa sign-in"
-            登录
+          - if user_signed_in?
+            = link_to  destroy_user_session_path, method: 'delete' do
+              = fa_icon "sign-out"
+              离开
+          - else
+            = link_to  new_user_session_path do
+              = fa_icon "sign-in"
+              登录

@@ -7,5 +7,12 @@
     = csrf_meta_tags
   %body
     = render 'layouts/header'
-    = yield
+    .col-lg-2
+    .col-lg-8
+      = yield
+    .col-lg-2
+      %p.text-info
+        = notice
+      %p.text-warning
+        = alert
     = render 'layouts/footer'
