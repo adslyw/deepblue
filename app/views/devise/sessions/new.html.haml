@@ -1,0 +1,13 @@
+.wrapper
+  = form_for(resource, as: resource_name, url: session_path(resource_name), html: { method: :post, class: "form-signin", role: "form"}) do |f|
+    = devise_error_messages!
+    %h2.form-signin-heading
+    = f.email_field :email, class: "form-control", placeholder: "邮箱地址", autofocus: 'true'
+    = f.password_field :password, class: "form-control", placeholder: "密码", autocomplete: 'off'
+    - if devise_mapping.rememberable?
+      .checkbox
+        = f.label :remember_me do
+          = f.check_box :remember_me
+          下次自动登录
+    = f.submit "登录", class: "btn btn-large btn-primary btn-block"
+    = render "devise/shared/links"

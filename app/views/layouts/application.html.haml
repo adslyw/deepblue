@@ -5,14 +5,15 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+  = render 'layouts/header'
   %body
-    = render 'layouts/header'
     .col-lg-2
     .col-lg-8
+      = render 'layouts/header'
       = yield
+      = render 'layouts/footer'
     .col-lg-2
       %p.text-info
         = notice
       %p.text-warning
         = alert
-    = render 'layouts/footer'
