@@ -7,13 +7,14 @@
     = csrf_meta_tags
   = render 'layouts/header'
   %body
-    .col-lg-2
-    .col-lg-8
-      = render 'layouts/header'
-      = yield
-      = render 'layouts/footer'
-    .col-lg-2
-      %p.text-info
-        = notice
-      %p.text-warning
-        = alert
+    = render 'layouts/header'
+    .row
+      .col-lg-2
+      .col-lg-8
+        = yield
+      .col-lg-2
+        %p.text-info
+          = notice
+        %p.text-warning
+          = alert
+    = render 'layouts/footer'
