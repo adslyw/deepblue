@@ -2,7 +2,7 @@ source 'http://ruby.sdutlinux.org/'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0.rc3'
+gem 'rails', '4.2.0'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets
@@ -38,6 +38,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'bootstrap-sass', '~> 3.3.1'
   gem 'font-awesome-rails'
   gem 'sidekiq', '3.2.5'
+  gem 'paperclip', '~> 4.2'
+  gem 'responders', '~> 2.0'
+  gem 'will_paginate', '~> 3.0.6'
 #
 
 

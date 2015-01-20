@@ -11,9 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141222021826) do
+ActiveRecord::Schema.define(version: 20150119075042) do
 
-  create_table "users", force: true do |t|
+  create_table "assets", force: :cascade do |t|
+    t.integer  "user_id",                 limit: 4
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "attachment_file_name",    limit: 255
+    t.string   "attachment_content_type", limit: 255
+    t.integer  "attachment_file_size",    limit: 4
+    t.datetime "attachment_updated_at"
+  end
+
+  add_index "assets", ["user_id"], name: "index_assets_on_user_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
     t.string   "reset_password_token",   limit: 255
@@ -31,4 +43,5 @@ ActiveRecord::Schema.define(version: 20141222021826) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "assets", "users"
 end

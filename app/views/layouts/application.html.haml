@@ -14,7 +14,9 @@
         = yield
       .col-lg-2
         %p.text-info
-          = notice
+          = flash[:notice]
         %p.text-warning
-          = alert
+          = flash[:alert]
+        %p.text-danger
+          = flash[:danger]
     = render 'layouts/footer'

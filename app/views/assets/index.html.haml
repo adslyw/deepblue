@@ -1,0 +1,26 @@
+= will_paginate @assets, :class => 'apple_pagination'
+
+%table.table.table-condensed
+  %thead
+    %tr
+      %th 文件名
+      %th 大小
+      %th 上传时间
+      %th -
+      %th -
+
+  %tbody
+    - @assets.each do |asset|
+      %tr
+        %td
+          = icon_for(asset)
+          &nbsp;
+          = asset.file_name
+        %td= number_to_human_size(asset.file_size, :precision => 2)
+        %td= asset.attachment_updated_at.localtime.to_s(:db)
+        %td= link_to '下载', download_url(asset)
+        %td= link_to '删除', asset, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to '上传新文件', new_asset_path, :class => 'btn btn-success'
