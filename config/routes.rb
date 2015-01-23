@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :menus
+
   resources :assets
 
   devise_for :users
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get '/assets/download/:id' => 'assets#download', as: :download
+  get '/menus/new/:id' => 'menus#new', as: :add_menu
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

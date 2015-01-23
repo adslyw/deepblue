@@ -2,9 +2,11 @@
 @import "font-awesome";
 
 body {
-  padding-top: 50px;
+  padding-top: 55px;
 }
-
+.navbar-brand {
+  padding: 15px 15px 0px 25px;
+}
 .site-footer {
   position: relative;
   margin-top: 40px;
@@ -20,6 +22,11 @@ body {
 .wrapper {
   margin-top: 80px;
   margin-bottom: 80px;
+}
+
+.page-tool-bar {
+  border-bottom: 1px solid #e5e5e5;
+  padding-top: 1em;
 }
 
 .form-signin {

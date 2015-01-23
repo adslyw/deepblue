@@ -1,0 +1,13 @@
+%ul#menu
+  - menus.each do |menu|
+    %li.nav-divider
+    %li{:class => ""}
+      %a{:href => ""}
+        = fa_icon menu.icon
+        %span.link-title
+          &nbsp;
+          = menu.title
+        - if menu.children.any?
+          %span.fa.arrow
+      %ul
+        = render partial: 'menus/submenu', locals: {submenus: menu.children}

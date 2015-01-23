@@ -1,0 +1,23 @@
+= form_for @menu do |f|
+  - if @menu.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@menu.errors.count, "error")} prohibited this menu from being saved:"
+      %ul
+        - @menu.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    = f.label "菜单标题"
+    = f.text_field :title
+  .form-group
+    = f.label "菜单图标"
+    = f.text_field :icon
+  .form-group
+    = f.label "菜单路径"
+    = f.text_field :url
+  .form-group
+    = f.label "上级菜单"
+    = select("menu", "parent_id", Menu.roots.collect {|p| [ p.title, p.id ] }, {include_blank: 'None'})
+  .form-group
+    = f.submit '提交', class: "btn btn-info btn-sm"
+    = link_to "返回", menus_path, class: "btn btn-default btn-sm"

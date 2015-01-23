@@ -41,6 +41,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'paperclip', '~> 4.2'
   gem 'responders', '~> 2.0'
   gem 'will_paginate', '~> 3.0.6'
+  gem 'acts_as_tree', '2.1.0'
+  gem 'mymenu-rails'
 #
 
 

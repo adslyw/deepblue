@@ -10,6 +10,9 @@
     = render 'layouts/header'
     .row
       .col-lg-2
+        - if user_signed_in?
+          .menu
+            = render partial: 'menus/menu', locals: { menus: Menu.roots }
       .col-lg-8
         = yield
       .col-lg-2
@@ -20,3 +23,9 @@
         %p.text-danger
           = flash[:danger]
     = render 'layouts/footer'
+    :javascript
+      $(function () {
+        $('#menu').metisMenu({
+          toggle: false
+        });
+      });

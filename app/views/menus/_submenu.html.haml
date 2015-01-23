@@ -1,0 +1,7 @@
+- submenus.each do |submenu|
+  %li{:class => ""}
+    %a{:href => submenu.url}
+      = fa_icon submenu.icon
+      %span.link-title
+        &nbsp;
+        = submenu.title
