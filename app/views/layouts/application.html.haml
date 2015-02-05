@@ -14,14 +14,26 @@
           .menu
             = render partial: 'menus/menu', locals: { menus: Menu.roots }
       .col-lg-8
+        -unless flash[:notice].nil?
+          %div.section.alert.alert-success.alert-dismissible
+            %button.close{'data-dismiss' => 'alert', type: 'button'}
+              %span{'aria-hidden' => "true"}
+                &times;
+            = flash[:notice]
+        -unless flash[:alert].nil?
+          %div.section.alert.alert-warning.alert-dismissible
+            %button.close{'data-dismiss' => 'alert', type: 'button'}
+              %span{'aria-hidden' => "true"}
+                &times;
+            = flash[:alert]
+        -unless flash[:danger].nil?
+          %div.section.alert.alert-danger.alert-dismissible
+            %button.close{'data-dismiss' => 'alert', type: 'button'}
+              %span{'aria-hidden' => "true"}
+                &times;
+            = flash[:danger]
         = yield
       .col-lg-2
-        %p.text-info
-          = flash[:notice]
-        %p.text-warning
-          = flash[:alert]
-        %p.text-danger
-          = flash[:danger]
     = render 'layouts/footer'
     :javascript
       $(function () {

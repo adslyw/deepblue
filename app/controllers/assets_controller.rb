@@ -1,11 +1,10 @@
 class AssetsController < ApplicationController
-  before_action :set_asset, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-
+  before_action :set_asset, only: [:show, :edit, :update, :destroy]
   respond_to :html
 
   def index
-    @assets = current_user.assets.paginate(:page => params[:page], :per_page => 13).order('created_at DESC')
+    @assets = current_user.assets.paginate(:page => params[:page], :per_page => 10).order('created_at DESC')
     respond_with(@assets)
   end
 

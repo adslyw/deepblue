@@ -34,6 +34,7 @@ class Asset < ActiveRecord::Base
     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
     'application/vnd.ms-powerpoint',
     'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+    'application/xml',
     'video/mp4',
     'video/ogg',
     'video/x-flv',
@@ -47,10 +48,10 @@ class Asset < ActiveRecord::Base
     :path => "#{Rails.root}/uploads/assets/:id/:basename.:extension"
   validates_attachment :attachment,
     :presence => true,
-    :content_type => {:content_type => @file_types_white_list},
+    #:content_type => {:content_type => @file_types_white_list},
     :size => {:in => 0..50.megabytes}
   validates_attachment_file_name :attachment, :matches => @file_names_white_list
-
+  do_not_validate_attachment_file_type :attachment
   def file_name
     attachment_file_name
   end

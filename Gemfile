@@ -35,7 +35,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # personal gem
   gem 'haml-rails'
   gem 'devise'
-  gem 'bootstrap-sass', '~> 3.3.1'
+  gem 'bootstrap-sass', '~> 3.3.3'
   gem 'font-awesome-rails'
   gem 'sidekiq', '3.2.5'
   gem 'paperclip', '~> 4.2'

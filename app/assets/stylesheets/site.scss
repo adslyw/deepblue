@@ -18,7 +18,16 @@ body {
   border-top: 1px solid #eee;
 }
 
-
+.table > thead > tr > th {
+    border-bottom: none;
+}
+.section {
+  margin: 10px 0px 10px 0px;
+  border: 1px solid #d8d8d8;
+  p {
+    margin: none;
+  }
+}
 .wrapper {
   margin-top: 80px;
   margin-bottom: 80px;
