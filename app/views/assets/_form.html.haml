@@ -1,15 +1,40 @@
-= form_for @asset do |f|
+= form_for @asset, remote: 'remote', html:{class: 'dropzone',role: :form, multipart: true} do |f|
   - if @asset.errors.any?
     #error_explanation
       %h2= "#{pluralize(@asset.errors.count, "error")} prohibited this asset from being saved:"
       %ul
         - @asset.errors.full_messages.each do |msg|
           %li= msg
-
+  .dropzone-previews
+    %p.dz-message.text-success
+      拖拽或者点击这里可以上传文件
   .field
     = f.hidden_field :user_id
-  .field
-    = f.label :attachment
+  .fallback
     = f.file_field :attachment
-  .actions
-    = f.submit 'Save'
+  .filed
+    = f.submit '立即上传', class: 'btn btn-success btn-lg'
+    = link_to '取消', assets_path, class: 'btn btn-default btn-sm'
+:javascript
+  $(function () {
+    Dropzone.autoDiscover = false;
+    new Dropzone("form#new_asset", {
+      paramName: 'asset[attachment]',
+      previewsContainer: '.dropzone-previews',
+      autoProcessQueue: false,
+      uploadMultiple: false,
+      parallelUploads: 1,
+      maxFiles: 1,
+      maxFilesize: 50,
+      init: function(){
+        var myDropzone = this;
+        // First change the button to actually tell Dropzone to process the queue.
+        this.element.querySelector("input[type=submit]").addEventListener("click", function(e) {
+          // Make sure that the form isn't actually being sent.
+          e.preventDefault();
+          e.stopPropagation();
+          myDropzone.processQueue();
+        });
+      }
+    });
+  });

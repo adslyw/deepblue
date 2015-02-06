@@ -43,6 +43,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'will_paginate', '~> 3.0.6'
   gem 'acts_as_tree', '2.1.0'
   gem 'mymenu-rails'
+  gem 'dropzonejs-rails'
 #
 
 

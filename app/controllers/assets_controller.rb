@@ -1,7 +1,8 @@
 class AssetsController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token, only: [:create]
   before_action :set_asset, only: [:show, :edit, :update, :destroy]
-  respond_to :html
+  respond_to :html,:js, :json
 
   def index
     @assets = current_user.assets.paginate(:page => params[:page], :per_page => 10).order('created_at DESC')
@@ -23,7 +24,9 @@ class AssetsController < ApplicationController
   def create
     @asset = current_user.assets.build(asset_params)
     if @asset.save
-      redirect_to assets_path, flash: { notice: "文件上传成功!"}
+      respond_to do |format|
+        format.json{ render :json => @asset }
+      end
     else
       render 'new'
     end
@@ -53,6 +56,7 @@ class AssetsController < ApplicationController
     end
 
     def asset_params
+      pp params
       params.require(:asset).permit(:user_id, :attachment)
     end
 end

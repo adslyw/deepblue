@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require bootstrap
 //= require mymenu
+//= require dropzone
 //= require_tree .
