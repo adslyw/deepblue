@@ -24,7 +24,7 @@ class AssetsController < ApplicationController
   def create
     @asset = current_user.assets.build(asset_params)
     if @asset.save
-      respond_to do |format|
+      respond_to do |format|        
         format.json{ render :json => @asset }
       end
     else
