@@ -4,7 +4,7 @@ class MissionsController < ApplicationController
   respond_to :html
 
   def index
-    @missions = Mission.all
+    @missions = Mission.paginate(:page => params[:page], :per_page => 10).order('created_at DESC')
     respond_with(@missions)
   end
 

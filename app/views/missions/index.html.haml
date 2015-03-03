@@ -1,29 +1,20 @@
-%h1 Listing missions
-
-%table
-  %thead
-    %tr
-      %th Description
-      %th Sql
-      %th Params
-      %th Sql type
-      %th Multiple
-      %th
-      %th
-      %th
-      
-  %tbody
-    - @missions.each do |mission|
+= will_paginate @misiions, :class => 'apple_pagination'
+.section
+  %table.table
+    %thead
       %tr
-        %td= mission.description
-        %td= mission.sql
-        %td= mission.params
-        %td= mission.sql_type
-        %td= mission.multiple
-        %td= link_to 'Show', mission
-        %td= link_to 'Edit', edit_mission_path(mission)
-        %td= link_to 'Destroy', mission, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+        %th ID
+        %th 功能
+        %th 创建时间
+        %th -
+        %th -
+    %tbody
+      - @missions.each do |mission|
+        %tr
+          %td= mission.id
+          %td= mission.description
+          %td= mission.created_at.localtime.to_s(:db)
+          %td= link_to '修改', edit_mission_path(mission)
+          %td= link_to '删除', mission, :method => :delete, :data => { :confirm => 'Are you sure?' }
 %br
-
-= link_to 'New Mission', new_mission_path
+= link_to '创建', new_mission_path, class: "btn btn-info"

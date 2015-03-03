@@ -1,25 +1,36 @@
-= form_for @mission do |f|
-  - if @mission.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@mission.errors.count, "error")} prohibited this mission from being saved:"
-      %ul
-        - @mission.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :description
-    = f.text_field :description
-  .field
-    = f.label :sql
-    = f.text_field :sql
-  .field
-    = f.label :params
-    = f.text_field :params
-  .field
-    = f.label :sql_type
-    = f.text_field :sql_type
-  .field
-    = f.label :multiple
-    = f.check_box :multiple
-  .actions
-    = f.submit 'Save'
+.section
+  .form
+    .form-header
+      = fa_icon "edit 2x"
+      %b 创建新任务
+    = form_for @mission do |f|
+      - if @mission.errors.any?
+        #error_explanation
+          %h2= "#{pluralize(@mission.errors.count, "error")} prohibited this mission from being saved:"
+          %ul
+            - @mission.errors.full_messages.each do |msg|
+              %li= msg
+      .field
+        .row
+          .col-lg-2= f.label "功能描述", class: "pull-right"
+          .col-lg-10= f.text_field :description, class: "block", size: "101"
+      .field
+        .row
+          .col-lg-2= f.label "SQL语句", class: "pull-right"
+          .col-lg-10= f.text_area :sql, rows: "5", cols: "100"
+      .field
+        .row
+          .col-lg-2= f.label "参数列表", class: "pull-right"
+          .col-lg-10= f.text_field :params, size: "101"
+      .field
+        .row
+          .col-lg-2= f.label "任务类型", class: "pull-right"
+          .col-lg-10= f.select :sql_type, ['query', 'exec']
+      .field
+        .row
+          .col-lg-2= f.label "是否支持批量运行", class: "pull-right"
+          .col-lg-10= f.check_box :multiple
+      .field
+        .row
+          .col-lg-2= f.submit '保存', class: "btn btn-info pull-right"
+          .col-lg-10= link_to '返回', missions_path, class: "btn btn-warning"
