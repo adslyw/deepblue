@@ -1,0 +1,29 @@
+%h1 Listing missions
+
+%table
+  %thead
+    %tr
+      %th Description
+      %th Sql
+      %th Params
+      %th Sql type
+      %th Multiple
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @missions.each do |mission|
+      %tr
+        %td= mission.description
+        %td= mission.sql
+        %td= mission.params
+        %td= mission.sql_type
+        %td= mission.multiple
+        %td= link_to 'Show', mission
+        %td= link_to 'Edit', edit_mission_path(mission)
+        %td= link_to 'Destroy', mission, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Mission', new_mission_path

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  sql: MyString
+  params: MyString
+  sql_type: MyString
+  multiple: false
+
+two:
+  description: MyString
+  sql: MyString
+  params: MyString
+  sql_type: MyString
+  multiple: false

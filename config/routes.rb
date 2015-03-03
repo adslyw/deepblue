@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :missions
+
+  get 'status/index'
+
   resources :menus
 
   resources :assets
@@ -6,6 +10,8 @@ Rails.application.routes.draw do
   devise_for :users
   get 'welcome/index'
 
+  get 'status' => 'status#index', as: :status
+  get 'mkdblink' => 'status#mkdblink', as: :mkdblink
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

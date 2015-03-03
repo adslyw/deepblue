@@ -1,0 +1,15 @@
+.page
+  -if @status.updated
+    -if @status.dblink_exist
+      %p.bg-primary
+        = fa_icon "check lg"
+        数据库运行正常.
+    -else
+      %p.bg-warning
+        = fa_icon "close lg"
+        数据库链接不存在,
+        = link_to "需要创建链接?", mkdblink_path
+  -else
+    %p.bg-danger
+      = fa_icon "close lg"
+      无法连接到数据库!

@@ -36,7 +36,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'haml-rails'
   gem 'devise'
   gem 'bootstrap-sass', '~> 3.3.3'
-  gem 'font-awesome-rails'
+  gem 'font-awesome-rails', '4.3.0'
   gem 'sidekiq', '3.2.5'
   gem 'paperclip', '~> 4.2'
   gem 'responders', '~> 2.0'
@@ -44,6 +44,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'acts_as_tree', '2.1.0'
   gem 'mymenu-rails'
   gem 'dropzonejs-rails'
+  gem 'record'
 #
 
 

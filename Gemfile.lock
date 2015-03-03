@@ -81,7 +81,7 @@ GEM
       rails (> 3.1)
     erubis (2.7.0)
     execjs (2.2.2)
-    font-awesome-rails (4.2.0.0)
+    font-awesome-rails (4.3.0.0)
       railties (>= 3.2, < 5.0)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
@@ -159,11 +159,15 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
+    record (0.0.2)
+      rails (~> 4.2.0)
+      ruby-oci8 (~> 2.1.7)
     redis (3.2.0)
     redis-namespace (1.5.1)
       redis (~> 3.0, >= 3.0.4)
     responders (2.0.2)
       railties (>= 4.2.0.alpha, < 5)
+    ruby-oci8 (2.1.7)
     ruby_parser (3.1.3)
       sexp_processor (~> 4.1)
     sass (3.4.10)
@@ -228,7 +232,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   dropzonejs-rails
-  font-awesome-rails
+  font-awesome-rails (= 4.3.0)
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
@@ -236,6 +240,7 @@ DEPENDENCIES
   mysql2
   paperclip (~> 4.2)
   rails (= 4.2.0)
+  record
   responders (~> 2.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

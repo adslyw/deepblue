@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150120033656) do
+ActiveRecord::Schema.define(version: 20150303024713) do
 
   create_table "assets", force: :cascade do |t|
     t.integer  "user_id",                 limit: 4
@@ -44,6 +44,16 @@ ActiveRecord::Schema.define(version: 20150120033656) do
   end
 
   add_index "menus", ["parent_id"], name: "index_menus_on_parent_id", using: :btree
+
+  create_table "missions", force: :cascade do |t|
+    t.string   "description", limit: 255
+    t.string   "sql",         limit: 255
+    t.string   "params",      limit: 255
+    t.string   "sql_type",    limit: 255
+    t.boolean  "multiple",    limit: 1
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false

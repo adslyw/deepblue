@@ -1,7 +1,7 @@
 class ImportUserJob < ActiveJob::Base
   queue_as :default
 
-  def perform(*args	)
-    puts "Start import data "
+  def perform()
+    BcvService.new.process
   end
 end

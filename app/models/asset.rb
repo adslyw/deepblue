@@ -16,7 +16,8 @@ class Asset < ActiveRecord::Base
     /mp4\Z/i,
     /flv\Z/i,
     /mp3\Z/i,
-    /ogg\Z/i
+    /ogg\Z/i,
+    /zip\Z/i
   ]
   @file_types_white_list = [
     'text/plain',
