@@ -1,5 +1,9 @@
 .page
   -if @status.updated
+    %p.bg-success
+      = fa_icon "clock-o lg"
+      数据更新于
+      %b= @status.update_time
     -if @status.dblink_exist
       %p.bg-primary
         = fa_icon "check lg"

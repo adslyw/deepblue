@@ -2,11 +2,12 @@ class StatusController < ApplicationController
   def index
     begin
       @bcv = BcvService.new
-      @mission = Mission.find(1)
-      @result = @bcv.process(@mission.to_hash)
+      dblink_exist = !@bcv.process(Mission.find(1).to_hash).empty?
+      dbupdate_time = @bcv.process(Mission.find(2).to_hash).first.item_value
       @status = OpenStruct.new
       @status.updated = true
-      @status.dblink_exist = !@result.empty?
+      @status.dblink_exist = dblink_exist
+      @status.update_time = dbupdate_time
     rescue
       @status = OpenStruct.new
       @status.updated = false
