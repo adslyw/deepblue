@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tasks
+
   resources :missions
 
   get 'status/index'

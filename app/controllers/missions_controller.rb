@@ -9,7 +9,8 @@ class MissionsController < ApplicationController
   end
 
   def show
-    respond_with(@mission)
+    #respond_with(@mission)
+    redirect_to missions_path
   end
 
   def new

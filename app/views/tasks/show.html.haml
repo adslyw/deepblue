@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Mission:
+  = @task.mission_id
+%p
+  %b Status:
+  = @task.status
+%p
+  %b Params:
+  = @task.params
+
+= link_to 'Edit', edit_task_path(@task)
+\|
+= link_to 'Back', tasks_path

@@ -1,4 +1,5 @@
 class Mission < ActiveRecord::Base
+  alias_attribute :name, :description
   def to_hash
     {
       sql: self.sql,

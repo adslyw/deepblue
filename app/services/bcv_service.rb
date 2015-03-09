@@ -23,4 +23,9 @@ class BcvService
       return false
     end
   end
+  def method_missing(method,*args)
+    if mission = Mission.find_by(:name => method)
+      eval "lambda {|#{mission.params}| puts '#{args}'}"
+    end
+  end
 end

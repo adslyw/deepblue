@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303024713) do
+ActiveRecord::Schema.define(version: 20150304092758) do
 
   create_table "assets", force: :cascade do |t|
     t.integer  "user_id",                 limit: 4
@@ -53,6 +53,14 @@ ActiveRecord::Schema.define(version: 20150303024713) do
     t.boolean  "multiple",    limit: 1
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.integer  "mission_id", limit: 4
+    t.integer  "status",     limit: 4
+    t.text     "params",     limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "users", force: :cascade do |t|
