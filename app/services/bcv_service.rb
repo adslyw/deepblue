@@ -40,6 +40,7 @@ class BcvService
       eval "@#{key}= param"
     }
     sql = eval mission.sql
+    p sql
     eval %Q{@executor.#{mission.sql_type}(sql)}
   end
 
