@@ -23,9 +23,28 @@ class BcvService
       return false
     end
   end
-  def method_missing(method,*args)
-    if mission = Mission.find_by(:name => method)
-      eval "lambda {|#{mission.params}| puts '#{args}'}"
+  def method_missing(name)
+    if mission = Mission.find_by(:name => name)
+      puts "@executor.#{mission.sql_type}(\"#{mission.sql}\")"
+      puts %Q{ lambda { |#{mission.params}| @executor.#{mission.sql_type}("#{mission.sql}") } }
+      eval %Q{ lambda { |#{mission.params}| @executor.#{mission.sql_type}("#{mission.sql}") } }
     end
   end
+
+  def exec_mission(mission,*args)
+    if !mission.params.empty? and !args.empty?
+      params = Hash[mission.params.split(',').zip(args)]
+    end
+    params.each{ |key,val|
+      param = round_with(val.join("','"),"'")
+      eval "@#{key}= param"
+    }
+    sql = eval mission.sql
+    eval %Q{@executor.#{mission.sql_type}(sql)}
+  end
+
+  private
+    def round_with(str,char)
+      char+str+char
+    end
 end
