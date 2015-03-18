@@ -2,7 +2,7 @@
   .form
     .form-header
       = fa_icon "search fw"
-      = @mission.name
+      = @mission.description
     = form_tag(controller: "search", action: "task", method: "post")
     - if @mission.has_params?
       - @mission.params.split(',').each do |param|

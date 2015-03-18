@@ -1,5 +1,4 @@
 class Mission < ActiveRecord::Base
-  alias_attribute :name, :description
   has_many :tasks
   def to_hash
     {
