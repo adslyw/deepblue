@@ -1,0 +1,16 @@
+.section
+  .form
+    .form-header
+      = fa_icon "search fw"
+      = @mission.name
+    = form_tag(controller: "search", action: "task", method: "post")
+    - if @mission.has_params?
+      - @mission.params.split(',').each do |param|
+        .field
+          .row
+            .col-lg-2= label_tag param.to_sym, param, class: "pull-right"
+            .col-lg-10
+              = text_field_tag param.to_sym
+              = submit_tag "查询", class: "btn-info"
+- if @result
+  = render 'result'

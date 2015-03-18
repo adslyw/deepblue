@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :tasks
 
   resources :missions
@@ -11,7 +12,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   get 'welcome/index'
-
+  get '/search' => 'search#index'
+  get '/search/:id' => 'search#task', as: :search_mission
+  post '/search/:id' => 'search#task', as: :search_result
   get 'status' => 'status#index', as: :status
   get 'mkdblink' => 'status#mkdblink', as: :mkdblink
   # The priority is based upon order of creation: first created -> highest priority.

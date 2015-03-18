@@ -1,0 +1,19 @@
+= will_paginate @missions, :class => 'apple_pagination'
+.section
+  %table.table
+    %thead
+      %tr
+        %th ID
+        %th 功能
+        %th -
+        %th -
+        %th -
+    %tbody
+      - @missions.each do |mission|
+        %tr
+          %td= mission.id
+          %td= mission.description
+          %td= link_to '查询', search_mission_path(mission)
+          %td
+          %td
+%br

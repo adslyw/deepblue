@@ -1,0 +1,11 @@
+.section
+  %table.table
+    %thead
+      %tr
+      - @result.columns.each do |col|
+        %th= col
+    %tbody
+      - @result.rows.each do |row|
+        %tr
+          - row.to_array.each do |field|
+            %td= field

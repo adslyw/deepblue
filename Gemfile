@@ -44,7 +44,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'acts_as_tree', '2.1.0'
   gem 'mymenu-rails'
   gem 'dropzonejs-rails'
-  gem 'record'
+  gem 'record', '0.0.3'
 #
 
 
