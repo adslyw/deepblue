@@ -43,6 +43,6 @@ class MissionsController < ApplicationController
     end
 
     def mission_params
-      params.require(:mission).permit(:description, :sql, :params, :sql_type, :multiple)
+      params.require(:mission).permit(:name,:description, :sql, :params, :sql_type, :multiple)
     end
 end
