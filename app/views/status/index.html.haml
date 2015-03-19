@@ -1,19 +1,19 @@
 .page
   -if @status.updated
     %p.bg-success
-      = fa_icon "clock-o lg"
+      = fa_icon "clock-o lg fw"
       数据更新于
       %b= @status.update_time
     -if @status.dblink_exist
       %p.bg-primary
-        = fa_icon "check lg"
+        = fa_icon "check lg fw"
         数据库运行正常.
     -else
       %p.bg-warning
-        = fa_icon "close lg"
+        = fa_icon "close lg fw"
         数据库链接不存在,
         = link_to "需要创建链接?", mkdblink_path
   -else
     %p.bg-danger
-      = fa_icon "close lg"
+      = fa_icon "close lg fw"
       无法连接到数据库!
