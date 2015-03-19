@@ -16,4 +16,5 @@
 //= require bootstrap
 //= require mymenu
 //= require dropzone
+//= require highcharts/highcharts
 //= require_tree .

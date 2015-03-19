@@ -45,6 +45,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'mymenu-rails'
   gem 'dropzonejs-rails'
   gem 'record', '0.0.3'
+  gem 'lazy_high_charts'
 #
 
 
