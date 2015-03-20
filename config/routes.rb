@@ -12,8 +12,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   get 'welcome/index'
-  get '/search' => 'search#index'
+  get '/search' => 'search#index', as: :search
   get '/search/:id' => 'search#task', as: :search_mission
+  get '/search/:id/tasks' => 'tasks#new', as: :search_job
   post '/search/:id' => 'search#task', as: :search_result
   get 'status' => 'status#index', as: :status
   get 'mkdblink' => 'status#mkdblink', as: :mkdblink

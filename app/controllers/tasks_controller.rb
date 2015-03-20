@@ -13,7 +13,8 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.new
+    mission = Mission.find(params[:id])
+    @task = mission.tasks.new
     respond_with(@task)
   end
 

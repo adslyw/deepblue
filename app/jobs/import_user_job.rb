@@ -2,6 +2,6 @@ class ImportUserJob < ActiveJob::Base
   queue_as :default
 
   def perform()
-    BcvService.new.process
+    puts "runing"+"."*100
   end
 end
