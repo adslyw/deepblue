@@ -1,45 +1,46 @@
-.section
-  .apply-form
-    %h3.text-center 批量数据提取申请单
-    = form_tag do
-      %table.table.table-bordered
-        %thead
-          %tr
-            %td.text-right{colspan: "4"}
-              填报日期:
-              = Date.today.strftime("%Y年%m月%d日")
-        %tbody
-          %tr
-            %td{rowspan: "2"} 申请部门
-            %td{rowspan: "2"}
-            %td 申请人
-            %td
-          %tr
-            %td 联系电话
-            %td
-          %tr
-            %td 申请事由
-            %td{colspan: "3"}
-          %tr
-            %td 申请内容
-            %td{colspan: "3"}
-          %tr
-            %td 业务部门审批
-            %td{colspan: "3"}
-          %tr
-            %td{rowspan: "2"} 市场营销部审批
-            %td{rowspan: "2"}
-            %td 处理人员
-            %td
-          %tr
-            %td 处理时限
-            %td
-          %tr
-            %td 公司主管领导审批
-            %td{colspan: "3"}
-      %b.text-danger [注意]:
-      %ul
-        %li 1.根据《关于加强用户信息安全的通知》［商洛联通（2013）193号］文件中涉密数据查询的相关要求，临时数据需主管领导批准方可提取。
-        %li 2.申请内容务必清楚合理，必要时请提前与数据提取部门联系沟通。
-      = submit_tag "确认提交", class: "btn btn-info"
-      = link_to '返回', search_path, class: "btn btn-default"
+.apply
+  = form_tag do
+    %table.section.table.table-bordered
+      %thead
+        %tr
+          %td.text-center{colspan: "4"}
+            %h3 批量数据提取申请单
+      %tbody
+        %tr
+          %td{colspan: "4"}
+            填报日期:
+            = Date.today.strftime("%Y年%m月%d日")
+        %tr
+          %td{rowspan: "2"} 申请部门
+          %td{rowspan: "2"}
+          %td 申请人
+          %td
+        %tr
+          %td 联系电话
+          %td
+        %tr
+          %td 申请事由
+          %td{colspan: "3"}
+        %tr
+          %td 申请内容
+          %td{colspan: "3"}= @task.mission.description
+        %tr
+          %td 业务部门审批
+          %td{colspan: "3"}
+        %tr
+          %td{rowspan: "2"} 市场营销部审批
+          %td{rowspan: "2"}
+          %td 处理人员
+          %td
+        %tr
+          %td 处理时限
+          %td
+        %tr
+          %td 公司主管领导审批
+          %td{colspan: "3"}
+    %b.text-danger [注意]:
+    %ul
+      %li 1.根据《关于加强用户信息安全的通知》［商洛联通（2013）193号］文件中涉密数据查询的相关要求，临时数据需主管领导批准方可提取。
+      %li 2.申请内容务必清楚合理，必要时请提前与数据提取部门联系沟通。
+    = submit_tag "确认提交", class: "btn btn-info"
+    = link_to '返回', search_path, class: "btn btn-default"
