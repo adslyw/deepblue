@@ -4,7 +4,7 @@
     %thead
       %tr
         %th ID
-        %th 功能
+        %th 
         %th -
         %th -
         %th -
@@ -15,9 +15,5 @@
           %td= mission.description
           %td= link_to '查询', search_mission_path(mission)
           %td
-            - if mission.multiple
-              = link_to('批量查询', search_job_path(mission))
-            - else
-              无法批量
           %td
 %br

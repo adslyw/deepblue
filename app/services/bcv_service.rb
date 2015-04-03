@@ -31,18 +31,21 @@ class BcvService
     end
   end
 
-  def exec_mission(mission,*args)
-    if !mission.params.empty? and !args.empty?
-      params = Hash[mission.params.split(',').zip(args)]
-      params.each{ |key,val|
-        param = round_with(val.join("','"),"'")
+  def exec_mission(mission,input={})
+    if !mission.params.empty? and !input.empty?
+      input.each{ |key,val|
+        val = val.join("','") if val.is_a? Array
+        param = round_with(val,"'")
         eval "@#{key}= param"
       }
     end
-
     sql = eval mission.sql
-    p sql
-    eval %Q{@executor.#{mission.sql_type}(sql)}
+    case mission.sql_type
+    when 'exec'
+      @executor.exec sql
+    when 'query'
+      @executor.query sql
+    end
   end
 
   private
