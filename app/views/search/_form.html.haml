@@ -11,8 +11,9 @@
               = label :input, param.to_sym, param, class: "col-sm-2 control-label"
               .col-sm-4
                 = text_field :input, param.to_sym, class: "form-control"
+        - if @mission.sql_type == 'query'
           .form-group
             .col-sm-offset-2.col-sm-2
               = submit_tag "查询", class: "btn btn-info btn-block"
         - else
-          该功能不支持查询
+          无法查询
