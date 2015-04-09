@@ -10,11 +10,14 @@ class SearchController < ApplicationController
     rescue
       redirect_to '/search'
     end
-
-    begin
-      @bcv = BcvService.new
-      @result = @bcv.exec_mission @mission, params[:input]
-    rescue
+    if request.post?
+      begin
+        @bcv = BcvService.new
+        @result = @bcv.exec_mission @mission, params[:input]
+      rescue
+        @result = nil
+      end
+    else
       @result = nil
     end
   end
